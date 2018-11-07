@@ -7,10 +7,13 @@ Vue.use(VueRouter)
 Vue.use(VScroller)
 
 import Index from './views/Index.vue'
-
+import RefreshAndInfinite from './views/RefreshAndInfinite.vue'
+import LoadMoreAndNoMore from './views/LoadMoreAndNoMore.vue'
 
 const routes = [
-  { path: '/', component: Index }
+  { path: '/', component: Index },
+  { path: '/refreshAndInfinite', component: RefreshAndInfinite },
+  { path: '/loadMoreAndNoMore', component: LoadMoreAndNoMore }
 ]
 
 

@@ -205,7 +205,7 @@
     bottom: 0;
     left: 0;
     overflow: hidden;
-    z-index: 100;
+    z-index: 1;
     height: auto;
     -webkit-overflow-scrolling: touch;
 	

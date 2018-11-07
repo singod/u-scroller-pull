@@ -80,6 +80,11 @@ export default class Scroller {
       return
     }
     if (this.top < 0 && isBottom) {
+      if (this.outerH >= this.innerH) {
+        this.__animate(0, this.top)
+        this.top = 0
+        return
+      }
       let _h = _normalEndTop
       if (this.fetching) {
         _h = _normalEndTop - this.loadH
