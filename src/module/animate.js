@@ -11,9 +11,32 @@ window.requestAnimFrame = (function(){
 })();
 
 export default content => {
+
+  let global = window;
+
+  let docStyle = document.documentElement.style;
+
+  let engine;
+  if (global.opera && Object.prototype.toString.call(opera) === '[object Opera]') {
+    engine = 'presto';
+  } else if ('MozAppearance' in docStyle) {
+    engine = 'gecko';
+  } else if ('WebkitAppearance' in docStyle) {
+    engine = 'webkit';
+  } else if (typeof navigator.cpuClass === 'string') {
+    engine = 'trident';
+  }
+
+  let vendorPrefix = {
+    trident: 'ms',
+    gecko: 'Moz',
+    webkit: 'Webkit',
+    presto: 'O'
+  }[engine];
+
   return (end, start) => {
     if (typeof start === 'undefined') {
-      content.style.WebkitTransform = 'translate3d(0, ' + end + 'px, 0)'
+      content.style[vendorPrefix + 'Transform'] = 'translate3d(0, ' + end + 'px, 0)'
       return
     }
     let _end = end
@@ -26,7 +49,7 @@ export default content => {
       step = dis / 10
       tar = _start + step
       _start = tar
-      if (Math.abs(dis - step) < 0.5) {
+      if (Math.abs(dis - step) < 1) {
         content.style.WebkitTransform = 'translate3d(0, ' + end + 'px, 0)'
         return
       }

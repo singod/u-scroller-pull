@@ -1,6 +1,13 @@
 
 <template lang="html">
-	<div class="yo-scroll" @touchstart="touchStart($event)" @touchmove="touchMove($event)" @touchend="touchEnd($event)">
+	<div class="yo-scroll" 
+		@touchstart="touchStart($event)" 
+		@touchmove="touchMove($event)" 
+		@touchend="touchEnd($event)"
+		@mousedown="mouseDown($event)"
+    @mousemove="mouseMove($event)"
+    @mouseup="mouseUp($event)"
+		>
 		<div class="scroll-container" >
 			<header :class="['pull-refresh', enableRefresh ? 'active' : '' ]" :style="{marginTop: -pullH + 'px'}">
 				<span v-show="state === -1 || state === 0">{{refreshText}}</span>
@@ -84,7 +91,8 @@
 				hasMore: true, // 是否还有更多数据
 				pullH: 0, // pull-refresh元素的高度值
 				scroller: null,
-				content: null
+				content: null,
+				mousedown: false
 			}
 		},
 		mounted () {
@@ -93,16 +101,17 @@
 		methods: {
 			init() {
 				this.hasMore = true
-				this.pullH = this.$el.querySelector('.pull-refresh').clientHeight;
-				let outerH = this.$el.clientHeight;
+				this.pullH = this.$el.querySelector('.pull-refresh').clientHeight
+				let loadH = this.$el.querySelector('.load-more').clientHeight
+				let outerH = this.$el.clientHeight
 				let content = this.$el.querySelector('.scroll-container')
 				let innerContent = this.$el.querySelector('.inner')
 				let animate = containerAnimate(content)
 				this.scroller = new Scroller(animate, {
 					pullH: this.pullH,
+					loadH: loadH,
 					outerH: outerH,
 					offset: this.offset,
-					content: content,
 					innerContent: innerContent,
 					enableInfinite: this.enableInfinite,
 					enableRefresh: this.enableRefresh
@@ -135,9 +144,32 @@
 			},
 			touchEnd(e) {
 				this.$nextTick(() => {
-					this.scroller.doTouchEnd(e)
+					this.scroller.doTouchEnd(e.changedTouches)
 				})
 			},
+
+			mouseDown(e) {
+				this.scroller.doTouchStart([{
+					pageX: e.pageX,
+          pageY: e.pageY
+				}])
+        this.mousedown = true
+      },
+      mouseMove(e) {
+        if (!this.mousedown) return
+        
+        this.scroller.doTouchMove([{
+          pageX: e.pageX,
+          pageY: e.pageY
+        }])
+        this.mousedown = true
+      },
+      mouseUp(e) {
+        if (!this.mousedown) return
+        this.scroller.doTouchEnd(e)
+        this.mousedown = false
+      },
+
 			refresh() {
 				this.checkError(this.onRefresh);
 				this.scroller.startRefresh()
