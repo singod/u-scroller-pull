@@ -1,4 +1,4 @@
-# u-scroller ![version](https://img.shields.io/badge/version-%20v2.2.0%20-green.svg) ![vue](https://img.shields.io/badge/vue-%20v2.1%20-green.svg)
+# u-scroller ![version](https://img.shields.io/badge/version-%20v1.0.3%20-green.svg) ![vue](https://img.shields.io/badge/vue-%20v2.5%20-green.svg)
 
 > 基于Vue 2.x 封装的很轻量的scroller组件,具有下拉刷新、上拉加载更多的功能.
 

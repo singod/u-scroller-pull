@@ -2,7 +2,7 @@
   "name": "u-scroller",
   "main": "dist/u-scroller.min.js",
   "description": "基于Vue 2.x 封装的很轻量的scroller组件,具有下拉刷新、上拉加载更多的功能.",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "author": "songqibin songqibin03@gmail.com",
   "license": "MIT",
   "private": false,
