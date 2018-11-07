@@ -1,5 +1,5 @@
-import VScroller from './components/v-scroller.vue'
+import UScroller from './components/u-scroller.vue'
 
-VScroller.install = Vue => Vue.component(VScroller.name, VScroller)
+UScroller.install = Vue => Vue.component(UScroller.name, UScroller)
 
-export default VScroller
+export default UScroller

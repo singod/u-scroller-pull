@@ -37,7 +37,7 @@
 	import Scroller from '../module/scroller.js'
 	import containerAnimate from '../module/animate.js'
 	export default {
-		name: 'v-scroller',
+		name: 'u-scroller',
 		props: {
 			// 触发下拉刷新的阈值
 			offset: {

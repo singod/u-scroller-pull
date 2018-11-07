@@ -1,9 +1,9 @@
 <template>
   <div>
-    <v-scroller css-class="custom-clazz" :onRefresh="onRefresh" :enableInfinite="false">
+    <u-scroller css-class="custom-clazz" :onRefresh="onRefresh" :enableInfinite="false">
       <h1 class="plugin-name">Refresh</h1>
       <div :class="['row', index % 2 === 1 ? 'grey-bg' : '']" v-for="(item, index) in list" :key="index">滚动区域内容{{index + 1}}</div>
-    </v-scroller>
+    </u-scroller>
 
 
   </div>

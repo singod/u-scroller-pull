@@ -1,28 +1,28 @@
-# v-scroller ![version](https://img.shields.io/badge/version-%20v2.2.0%20-green.svg) ![vue](https://img.shields.io/badge/vue-%20v2.1%20-green.svg)
+# u-scroller ![version](https://img.shields.io/badge/version-%20v2.2.0%20-green.svg) ![vue](https://img.shields.io/badge/vue-%20v2.1%20-green.svg)
 
 > 基于Vue 2.x 封装的很轻量的scroller组件,具有下拉刷新、上拉加载更多的功能.
 
 ## Demo 示例
 
-[https://github.com/undo03/v-scroller](https://github.com/undo03/v-scroller)
+[https://github.com/undo03/u-scroller](https://github.com/undo03/u-scroller)
 
 
 ## 使用方式
 ``` bash
 # install dependencies
-npm install v-scroller -S
+npm install u-scroller -S
 ```
 
 ```javascript
 import Vue from 'vue'
-import VScroller from 'v-scroller'
-Vue.use(VScroller)
+import UScroller from 'u-scroller'
+Vue.use(UScroller)
 ```
 
 ```html
-  <v-scroller :onRefresh="onRefresh" :onInfinite="onInfinite">
+  <u-scroller :onRefresh="onRefresh" :onInfinite="onInfinite">
     <!-- html content -->
-  </v-scroller>
+  </u-scroller>
 ```
 
 ## 接口文档

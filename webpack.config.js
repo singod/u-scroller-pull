@@ -72,7 +72,7 @@ module.exports = {
   resolve: {
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
-      'v-scroller': path.resolve(__dirname, './src')
+      'u-scroller': path.resolve(__dirname, './src')
     },
     extensions: ['*', '.js', '.vue', '.json']
   },
@@ -111,8 +111,8 @@ if (process.env.NODE_ENV === 'production') {
     module.exports.entry = './src/index.js'
     module.exports.output = {
       path: path.resolve(__dirname, './dist'),
-      filename: 'v-scroller.min.js',
-      library: 'v-scroller',
+      filename: 'u-scroller.min.js',
+      library: 'u-scroller',
       libraryTarget: 'umd',
       umdNamedDefine: true
     }

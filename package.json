@@ -1,10 +1,11 @@
 {
-  "name": "v-scroller",
-  "main": "dist/v-scroller.min.js",
+  "name": "u-scroller",
+  "main": "dist/u-scroller.min.js",
   "description": "基于Vue 2.x 封装的很轻量的scroller组件,具有下拉刷新、上拉加载更多的功能.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "songqibin songqibin03@gmail.com",
   "license": "MIT",
+  "private": false,
   "scripts": {
     "build": "cross-env NODE_ENV=production BUILD=publish webpack --progress --hide-modules",
     "dev": "cross-env NODE_ENV=development webpack-dev-server --open --hot",
